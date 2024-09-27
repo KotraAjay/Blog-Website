@@ -1,0 +1,29 @@
+<%- include("partials/header.ejs") %>
+<div class="container">
+    <h1>My Blog</h1>
+    <form action="/create" method="GET">
+    <button type="submit" class="createBlog">Create Blog</button>
+    </form>
+    
+    <% if(locals.dataList){ %>
+    <% for(var i=dataList.length-1;i>=0;i--){ %>
+        <div class="box">
+            <h1><%= dataList[i].title %></h1>
+            <br>
+            <p><%= dataList[i].matter %></p>
+            <br>
+            <p class="aut">By: <%= dataList[i].author %></p>
+            <div class="editAndDelete">
+                <form action="/edit" method="POST">
+                    <input type="hidden" value=<%= i %> name="buttonIndex">
+                    <button type="submit" class="editBlog">Edit</button>
+                </form>
+                <form action="/delete" method="POST">
+                    <input type="hidden" value=<%= i %> name="buttonIndex">
+                    <button type="submit" class="deleteBlog">Delete</button>
+                </form>
+            </div>
+        </div>
+        <% } }%>
+</div>
+<%- include("partials/footer.ejs") %>

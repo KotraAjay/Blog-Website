@@ -1,0 +1,13 @@
+<%- include("header.ejs") %>
+<div class="createAll">
+    <h1>Create Blog</h1>
+<form action="/" method="POST">
+    <div class="createData">
+    <input type="text" name="title" placeholder="Title" class="createTitle" value="<%= tata.title%>">
+    <textarea type="text" name="matter" placeholder="Enter your Blog" class="createMatter"><%= tata.matter %></textarea>
+    <input type="text" name="author" placeholder="Enter your Name" class="createAuthor" value="<%= tata.author%>">
+    <button type="submit" class="postBlog">Post Blog</button>
+    </div>
+</form>
+</div>
+<%- include("footer.ejs") %>
